@@ -45,7 +45,7 @@ namespace mensajeria_ws {
             string email,
             string showAs,
             string website,
-            string imAdress,
+            string imAddress,
             string phoneWork,
             string phoneHome,
             string faxWork,
@@ -69,8 +69,8 @@ namespace mensajeria_ws {
             sql.Parameters[5].Value = showAs;
             sql.Parameters.Add("@website", SqlDbType.NVarChar);
             sql.Parameters[6].Value = website;
-            sql.Parameters.Add("@imAdress", SqlDbType.NVarChar);
-            sql.Parameters[7].Value = imAdress;
+            sql.Parameters.Add("@imAddress", SqlDbType.NVarChar);
+            sql.Parameters[7].Value = imAddress;
             sql.Parameters.Add("@phoneWork", SqlDbType.NVarChar);
             sql.Parameters[8].Value = phoneWork;
             sql.Parameters.Add("@phoneHome", SqlDbType.NVarChar);
@@ -85,6 +85,65 @@ namespace mensajeria_ws {
             sql.Parameters[13].Value = correspondence;
             sql.Parameters.Add("@notes", SqlDbType.NVarChar);
             sql.Parameters[14].Value = notes;
+            SqlDataAdapter da = new SqlDataAdapter(sql);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
+        public static DataSet updateRecord(
+            string query,
+            int id,
+            string name,
+            string organization,
+            string position,
+            string storeType,
+            string email,
+            string showAs,
+            string website,
+            string imAddress,
+            string phoneWork,
+            string phoneHome,
+            string faxWork,
+            string phoneMobile,
+            string workAddress,
+            int correspondence,
+            string notes
+        )
+        {
+            SqlCommand sql = new SqlCommand(query, con);
+            sql.Parameters.Add("@name", SqlDbType.NVarChar);
+            sql.Parameters[0].Value = name;
+            sql.Parameters.Add("@organization", SqlDbType.NVarChar);
+            sql.Parameters[1].Value = organization;
+            sql.Parameters.Add("@position", SqlDbType.NVarChar);
+            sql.Parameters[2].Value = position;
+            sql.Parameters.Add("@storeType", SqlDbType.NVarChar);
+            sql.Parameters[3].Value = storeType;
+            sql.Parameters.Add("@email", SqlDbType.NVarChar);
+            sql.Parameters[4].Value = email;
+            sql.Parameters.Add("@showAs", SqlDbType.NVarChar);
+            sql.Parameters[5].Value = showAs;
+            sql.Parameters.Add("@website", SqlDbType.NVarChar);
+            sql.Parameters[6].Value = website;
+            sql.Parameters.Add("@imAddress", SqlDbType.NVarChar);
+            sql.Parameters[7].Value = imAddress;
+            sql.Parameters.Add("@phoneWork", SqlDbType.NVarChar);
+            sql.Parameters[8].Value = phoneWork;
+            sql.Parameters.Add("@phoneHome", SqlDbType.NVarChar);
+            sql.Parameters[9].Value = phoneHome;
+            sql.Parameters.Add("@faxWork", SqlDbType.NVarChar);
+            sql.Parameters[10].Value = faxWork;
+            sql.Parameters.Add("@phoneMobile", SqlDbType.NVarChar);
+            sql.Parameters[11].Value = phoneMobile;
+            sql.Parameters.Add("@workAddress", SqlDbType.NVarChar);
+            sql.Parameters[12].Value = workAddress;
+            sql.Parameters.Add("@correspondence", SqlDbType.TinyInt);
+            sql.Parameters[13].Value = correspondence;
+            sql.Parameters.Add("@notes", SqlDbType.NVarChar);
+            sql.Parameters[14].Value = notes;
+            sql.Parameters.Add("@id", SqlDbType.NVarChar);
+            sql.Parameters[15].Value = id;
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataSet ds = new DataSet();
             da.Fill(ds);

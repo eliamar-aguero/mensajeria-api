@@ -38,7 +38,7 @@ namespace mensajeria_ws {
             string email,
             string showAs,
             string website,
-            string imAdress,
+            string imAddress,
             string phoneWork,
             string phoneHome,
             string faxWork,
@@ -72,7 +72,7 @@ namespace mensajeria_ws {
                 @email,
                 @showAs,
                 @website,
-                @imAdress,
+                @imAddress,
                 @phoneWork,
                 @phoneHome,
                 @faxWork,
@@ -90,7 +90,66 @@ namespace mensajeria_ws {
                 email,
                 showAs,
                 website,
-                imAdress,
+                imAddress,
+                phoneWork,
+                phoneHome,
+                faxWork,
+                phoneMobile,
+                workAddress,
+                correspondence,
+                notes
+            );
+        }
+
+        [WebMethod]
+        public DataSet UpdateContact(
+            int id,
+            string name,
+            string organization,
+            string position,
+            string storeType,
+            string email,
+            string showAs,
+            string website,
+            string imAddress,
+            string phoneWork,
+            string phoneHome,
+            string faxWork,
+            string phoneMobile,
+            string workAddress,
+            int correspondence,
+            string notes
+            )
+        {
+            string sql = @"UPDATE contactos
+                SET
+                    nombre = @name, 
+                    organizacion = @organization,
+                    puesto = @position,
+                    archivar_como_a = @storeType,
+                    email = @email,
+                    mostrar_como = @showAs,
+                    pagina_web = @website,
+                    direccion_im = @imAddress,
+                    tel_trabajo = @phoneWork,
+                    tel_particular = @phoneHome,
+                    fax_trabajo = @faxWork,
+                    tel_movil = @phoneMobile,
+                    direccion_trabajo = @workAddress,
+                    direccion_correspondencia = @correspondence,
+                    notas = @notes
+                WHERE id = @id";
+            return CrudClass.updateRecord(
+                sql,
+                id,
+                name,
+                organization,
+                position,
+                storeType,
+                email,
+                showAs,
+                website,
+                imAddress,
                 phoneWork,
                 phoneHome,
                 faxWork,
