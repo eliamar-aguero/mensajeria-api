@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Configuration;
 
 namespace mensajeria_ws
 {
@@ -22,5 +25,22 @@ namespace mensajeria_ws
         {
             return "Hola a todos";
         }
+
+
+        [WebMethod]
+        public DataSet Obtener_dato(string id)
+        {
+            string conString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand sql = new SqlCommand("SELECT contactos.nombre, contactos.tel_movil, mensajes.mensaje FROM contactos INNER JOIN mensajes ON contactos.id = mensajes.contactos_id; ", con);
+           // sql.Parameters.Add("@id", SqlDbType.NVarChar);
+           // sql.Parameters[0].Value = id;
+            SqlDataAdapter da = new SqlDataAdapter(sql);
+            da.Fill(ds);
+
+            return ds;
+        }
+        
     }
 }
