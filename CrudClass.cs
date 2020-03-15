@@ -16,10 +16,10 @@ namespace mensajeria_ws {
             return ds;
         }
 
-        public static DataSet getSingleRecord(string query, int id) {
+        public static DataSet getSingleRecord(string query, string name) {
             SqlCommand sql = new SqlCommand(query, con);
-            sql.Parameters.Add("@id", SqlDbType.NVarChar);
-            sql.Parameters[0].Value = id;
+            sql.Parameters.Add("@name", SqlDbType.NVarChar);
+            sql.Parameters[0].Value = name;
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataSet ds = new DataSet();
             da.Fill(ds);

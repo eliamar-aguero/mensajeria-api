@@ -18,9 +18,9 @@ namespace mensajeria_ws {
         }
 
         [WebMethod]
-        public DataSet GetSingleContact(int id) {
-            string sql = "SELECT * FROM contactos where id = @id;";
-            return CrudClass.getSingleRecord(sql, id);
+        public DataSet GetSingleContact(string name) {
+            string sql = "SELECT * FROM contactos where name = @name;";
+            return CrudClass.getSingleRecord(sql, name);
         }
 
         [WebMethod]
