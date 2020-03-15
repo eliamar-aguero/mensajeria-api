@@ -19,7 +19,7 @@ namespace mensajeria_ws {
 
         [WebMethod]
         public DataSet GetSingleContact(string name) {
-            string sql = "SELECT * FROM contactos where name = @name;";
+            string sql = "SELECT * FROM contactos where nombre = @name;";
             return CrudClass.getSingleRecord(sql, name);
         }
 
