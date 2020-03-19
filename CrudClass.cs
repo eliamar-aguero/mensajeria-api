@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using FSharp.Data.Runtime.StructuralTypes;
 
 namespace mensajeria_ws {
     public class CrudClass {
@@ -52,7 +53,8 @@ namespace mensajeria_ws {
             string phoneMobile,
             string workAddress,
             int correspondence,
-            string notes
+            string notes,
+            Bit imagen
         ) {
             SqlCommand sql = new SqlCommand(query, con);
             sql.Parameters.Add("@name", SqlDbType.NVarChar);
@@ -85,6 +87,8 @@ namespace mensajeria_ws {
             sql.Parameters[13].Value = correspondence;
             sql.Parameters.Add("@notes", SqlDbType.NVarChar);
             sql.Parameters[14].Value = notes;
+            sql.Parameters.Add("@imagen", SqlDbType.Bit);
+            sql.Parameters[15].Value = imagen;
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -108,7 +112,8 @@ namespace mensajeria_ws {
             string phoneMobile,
             string workAddress,
             int correspondence,
-            string notes
+            string notes,
+            Bit imagen
         )
         {
             SqlCommand sql = new SqlCommand(query, con);
@@ -142,8 +147,10 @@ namespace mensajeria_ws {
             sql.Parameters[13].Value = correspondence;
             sql.Parameters.Add("@notes", SqlDbType.NVarChar);
             sql.Parameters[14].Value = notes;
+            sql.Parameters.Add("@imagen", SqlDbType.Bit);
+            sql.Parameters[15].Value = imagen;
             sql.Parameters.Add("@id", SqlDbType.NVarChar);
-            sql.Parameters[15].Value = id;
+            sql.Parameters[16].Value = id;
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataSet ds = new DataSet();
             da.Fill(ds);

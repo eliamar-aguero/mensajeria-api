@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using FSharp.Data.Runtime.StructuralTypes;
+using System.Data;
 using System.Web.Services;
 
 namespace mensajeria_ws {
@@ -45,7 +46,8 @@ namespace mensajeria_ws {
             string phoneMobile,
             string workAddress,
             int correspondence,
-            string notes
+            string notes,
+            Bit imagen
             ) {
             string sql = @"INSERT INTO contactos(
                 nombre,
@@ -62,7 +64,8 @@ namespace mensajeria_ws {
                 tel_movil,
                 direccion_trabajo,
                 direccion_correspondencia,
-                notas
+                notas,
+                imagen
             )
             VALUES(
                 @name,
@@ -80,6 +83,7 @@ namespace mensajeria_ws {
                 @workAddress,
                 @correspondence,
                 @notes
+                @imagen
             )";
             return CrudClass.createRecord(
                 sql,
@@ -97,7 +101,8 @@ namespace mensajeria_ws {
                 phoneMobile,
                 workAddress,
                 correspondence,
-                notes
+                notes,
+                imagen
             );
         }
 
@@ -118,7 +123,8 @@ namespace mensajeria_ws {
             string phoneMobile,
             string workAddress,
             int correspondence,
-            string notes
+            string notes,
+            Bit imagen
             )
         {
             string sql = @"UPDATE contactos
@@ -138,6 +144,7 @@ namespace mensajeria_ws {
                     direccion_trabajo = @workAddress,
                     direccion_correspondencia = @correspondence,
                     notas = @notes
+                    imagen = @imagen
                 WHERE id = @id";
             return CrudClass.updateRecord(
                 sql,
@@ -156,7 +163,8 @@ namespace mensajeria_ws {
                 phoneMobile,
                 workAddress,
                 correspondence,
-                notes
+                notes,
+                imagen
             );
         }
 
