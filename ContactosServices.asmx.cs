@@ -1,6 +1,7 @@
 ﻿using FSharp.Data.Runtime.StructuralTypes;
 using System.Data;
 using System.Web.Services;
+using System.Web.UI.WebControls;
 
 namespace mensajeria_ws {
     /// <summary>
@@ -47,7 +48,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bit imagen
+            Image imagen
             ) {
             string sql = @"INSERT INTO contactos(
                 nombre,
@@ -124,7 +125,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bit imagen
+            Image imagen
             )
         {
             string sql = @"UPDATE contactos
