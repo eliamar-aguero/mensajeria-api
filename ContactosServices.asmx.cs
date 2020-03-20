@@ -49,7 +49,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bitmap imagen
+            string imagen
             ) {
             string sql = @"INSERT INTO contactos(
                 nombre,
@@ -126,7 +126,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bitmap imagen
+            string imagen
             )
         {
             string sql = @"UPDATE contactos
