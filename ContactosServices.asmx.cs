@@ -84,7 +84,7 @@ namespace mensajeria_ws {
                 @phoneMobile,
                 @workAddress,
                 @correspondence,
-                @notes
+                @notes,
                 @imagen
             )";
             return CrudClass.createRecord(
@@ -145,7 +145,7 @@ namespace mensajeria_ws {
                     tel_movil = @phoneMobile,
                     direccion_trabajo = @workAddress,
                     direccion_correspondencia = @correspondence,
-                    notas = @notes
+                    notas = @notes,
                     imagen = @imagen
                 WHERE id = @id";
             return CrudClass.updateRecord(
