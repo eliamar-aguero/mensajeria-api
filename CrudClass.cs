@@ -89,7 +89,7 @@ namespace mensajeria_ws {
             sql.Parameters[13].Value = correspondence;
             sql.Parameters.Add("@notes", SqlDbType.NVarChar);
             sql.Parameters[14].Value = notes;
-            sql.Parameters.Add("@imagen", SqlDbType.NVarChar);
+            sql.Parameters.Add("@imagen", SqlDbType.VarChar);
             sql.Parameters[15].Value = imagen;
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataSet ds = new DataSet();
@@ -149,7 +149,7 @@ namespace mensajeria_ws {
             sql.Parameters[13].Value = correspondence;
             sql.Parameters.Add("@notes", SqlDbType.NVarChar);
             sql.Parameters[14].Value = notes;
-            sql.Parameters.Add("@imagen", SqlDbType.NVarChar);
+            sql.Parameters.Add("@imagen", SqlDbType.VarChar);
             sql.Parameters[15].Value = imagen;
             sql.Parameters.Add("@id", SqlDbType.NVarChar);
             sql.Parameters[16].Value = id;
