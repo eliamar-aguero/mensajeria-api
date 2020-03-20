@@ -56,7 +56,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bitmap imagen
+            string imagen
         ) {
             SqlCommand sql = new SqlCommand(query, con);
             sql.Parameters.Add("@name", SqlDbType.NVarChar);
@@ -115,7 +115,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Bitmap imagen
+            string imagen
         )
         {
             SqlCommand sql = new SqlCommand(query, con);
