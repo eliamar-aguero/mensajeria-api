@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using FSharp.Data.Runtime.StructuralTypes;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace mensajeria_ws {
     public class CrudClass {
@@ -55,7 +56,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Image imagen
+            Bitmap imagen
         ) {
             SqlCommand sql = new SqlCommand(query, con);
             sql.Parameters.Add("@name", SqlDbType.NVarChar);
@@ -114,7 +115,7 @@ namespace mensajeria_ws {
             string workAddress,
             int correspondence,
             string notes,
-            Image imagen
+            Bitmap imagen
         )
         {
             SqlCommand sql = new SqlCommand(query, con);
